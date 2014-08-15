@@ -13,14 +13,14 @@
 		57DF2B5A199E1DC3005081F7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 57DF2B58199E1DC3005081F7 /* InfoPlist.strings */; };
 		57DF2B5C199E1DC3005081F7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 57DF2B5B199E1DC3005081F7 /* main.m */; };
 		57DF2B60199E1DC3005081F7 /* TKBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 57DF2B5F199E1DC3005081F7 /* TKBAppDelegate.m */; };
-		57DF2B63199E1DC3005081F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57DF2B61199E1DC3005081F7 /* Main.storyboard */; };
-		57DF2B66199E1DC3005081F7 /* TKBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57DF2B65199E1DC3005081F7 /* TKBViewController.m */; };
 		57DF2B68199E1DC3005081F7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57DF2B67199E1DC3005081F7 /* Images.xcassets */; };
 		57DF2B6F199E1DC3005081F7 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57DF2B6E199E1DC3005081F7 /* XCTest.framework */; };
 		57DF2B70199E1DC3005081F7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57DF2B4F199E1DC3005081F7 /* Foundation.framework */; };
 		57DF2B71199E1DC3005081F7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57DF2B53199E1DC3005081F7 /* UIKit.framework */; };
 		57DF2B79199E1DC3005081F7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 57DF2B77199E1DC3005081F7 /* InfoPlist.strings */; };
 		57DF2B7B199E1DC3005081F7 /* ScheduleManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 57DF2B7A199E1DC3005081F7 /* ScheduleManagerTests.m */; };
+		57F7ECEE199E21F1005AC8A3 /* TKBListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57F7ECEC199E21F1005AC8A3 /* TKBListViewController.m */; };
+		57F7ECEF199E21F1005AC8A3 /* TKBListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57F7ECED199E21F1005AC8A3 /* TKBListViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,15 +44,15 @@
 		57DF2B5D199E1DC3005081F7 /* ScheduleManager-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ScheduleManager-Prefix.pch"; sourceTree = "<group>"; };
 		57DF2B5E199E1DC3005081F7 /* TKBAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TKBAppDelegate.h; sourceTree = "<group>"; };
 		57DF2B5F199E1DC3005081F7 /* TKBAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TKBAppDelegate.m; sourceTree = "<group>"; };
-		57DF2B62199E1DC3005081F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		57DF2B64199E1DC3005081F7 /* TKBViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TKBViewController.h; sourceTree = "<group>"; };
-		57DF2B65199E1DC3005081F7 /* TKBViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TKBViewController.m; sourceTree = "<group>"; };
 		57DF2B67199E1DC3005081F7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		57DF2B6D199E1DC3005081F7 /* ScheduleManagerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScheduleManagerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		57DF2B6E199E1DC3005081F7 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		57DF2B76199E1DC3005081F7 /* ScheduleManagerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ScheduleManagerTests-Info.plist"; sourceTree = "<group>"; };
 		57DF2B78199E1DC3005081F7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		57DF2B7A199E1DC3005081F7 /* ScheduleManagerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScheduleManagerTests.m; sourceTree = "<group>"; };
+		57F7ECEB199E21F1005AC8A3 /* TKBListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKBListViewController.h; sourceTree = "<group>"; };
+		57F7ECEC199E21F1005AC8A3 /* TKBListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKBListViewController.m; sourceTree = "<group>"; };
+		57F7ECED199E21F1005AC8A3 /* TKBListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TKBListViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,9 +114,9 @@
 			children = (
 				57DF2B5E199E1DC3005081F7 /* TKBAppDelegate.h */,
 				57DF2B5F199E1DC3005081F7 /* TKBAppDelegate.m */,
-				57DF2B61199E1DC3005081F7 /* Main.storyboard */,
-				57DF2B64199E1DC3005081F7 /* TKBViewController.h */,
-				57DF2B65199E1DC3005081F7 /* TKBViewController.m */,
+				57DF2B86199E1E5B005081F7 /* Controller */,
+				57DF2B85199E1E53005081F7 /* View */,
+				57DF2B84199E1E4C005081F7 /* Model */,
 				57DF2B67199E1DC3005081F7 /* Images.xcassets */,
 				57DF2B56199E1DC3005081F7 /* Supporting Files */,
 			);
@@ -150,6 +150,30 @@
 				57DF2B77199E1DC3005081F7 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		57DF2B84199E1E4C005081F7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		57DF2B85199E1E53005081F7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				57F7ECED199E21F1005AC8A3 /* TKBListViewController.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		57DF2B86199E1E5B005081F7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				57F7ECEB199E21F1005AC8A3 /* TKBListViewController.h */,
+				57F7ECEC199E21F1005AC8A3 /* TKBListViewController.m */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,9 +253,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57F7ECEF199E21F1005AC8A3 /* TKBListViewController.xib in Resources */,
 				57DF2B68199E1DC3005081F7 /* Images.xcassets in Resources */,
 				57DF2B5A199E1DC3005081F7 /* InfoPlist.strings in Resources */,
-				57DF2B63199E1DC3005081F7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,9 +274,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57F7ECEE199E21F1005AC8A3 /* TKBListViewController.m in Sources */,
 				57DF2B60199E1DC3005081F7 /* TKBAppDelegate.m in Sources */,
 				57DF2B5C199E1DC3005081F7 /* main.m in Sources */,
-				57DF2B66199E1DC3005081F7 /* TKBViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,14 +305,6 @@
 				57DF2B59199E1DC3005081F7 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		57DF2B61199E1DC3005081F7 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				57DF2B62199E1DC3005081F7 /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		57DF2B77199E1DC3005081F7 /* InfoPlist.strings */ = {
@@ -459,6 +475,7 @@
 				57DF2B80199E1DC3005081F7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		57DF2B81199E1DC3005081F7 /* Build configuration list for PBXNativeTarget "ScheduleManagerTests" */ = {
 			isa = XCConfigurationList;
@@ -467,6 +484,7 @@
 				57DF2B83199E1DC3005081F7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

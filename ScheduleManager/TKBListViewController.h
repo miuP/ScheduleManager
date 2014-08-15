@@ -1,5 +1,5 @@
 //
-//  TKBViewController.h
+//  TKBListViewController.h
 //  ScheduleManager
 //
 //  Created by kazuya on 8/15/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TKBViewController : UIViewController
+@interface TKBListViewController : UIViewController
 
 @end

@@ -7,12 +7,20 @@
 //
 
 #import "TKBAppDelegate.h"
+#import "TKBListViewController.h"
 
 @implementation TKBAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    TKBListViewController *rootVC = [[TKBListViewController alloc] initWithNibName:NSStringFromClass([TKBListViewController class])
+                                                                            bundle:nil];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:rootVC];
+    self.window.rootViewController = navigationController;
+    
+    [self.window makeKeyAndVisible];
     return YES;
 }
 							
