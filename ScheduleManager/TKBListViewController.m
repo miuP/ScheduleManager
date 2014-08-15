@@ -7,8 +7,10 @@
 //
 
 #import "TKBListViewController.h"
+#import "TKBAddViewController.h"
 
-@interface TKBListViewController ()
+@interface TKBListViewController () <UITableViewDataSource, UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -28,6 +30,44 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"一覧";
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    [self prepareView];
+}
+
+- (void) prepareView
+{
+    //NaviBarに+ボタンの追加
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithTitle:@"New"
+                                                                  style:UIBarButtonItemStylePlain
+                                                                 target:self
+                                                                 action:@selector(didTapAddButton)];
+    self.navigationItem.rightBarButtonItem = addButton;
+}
+
+- (void)didTapAddButton
+{
+    TKBAddViewController *toVC = [[TKBAddViewController alloc] initWithNibName:NSStringFromClass([TKBAddViewController class])
+                                                                        bundle:nil];
+    [self.navigationController pushViewController:toVC animated:YES];
+    toVC.title = @"新規作成";
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 15;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 100;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [[UITableViewCell alloc] init];
+    return cell;
 }
 
 - (void)didReceiveMemoryWarning

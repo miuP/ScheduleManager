@@ -21,6 +21,8 @@
 		57DF2B7B199E1DC3005081F7 /* ScheduleManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 57DF2B7A199E1DC3005081F7 /* ScheduleManagerTests.m */; };
 		57F7ECEE199E21F1005AC8A3 /* TKBListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57F7ECEC199E21F1005AC8A3 /* TKBListViewController.m */; };
 		57F7ECEF199E21F1005AC8A3 /* TKBListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57F7ECED199E21F1005AC8A3 /* TKBListViewController.xib */; };
+		57F7ECF6199E3A30005AC8A3 /* TKBAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57F7ECF4199E3A30005AC8A3 /* TKBAddViewController.m */; };
+		57F7ECF7199E3A30005AC8A3 /* TKBAddViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57F7ECF5199E3A30005AC8A3 /* TKBAddViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,9 @@
 		57F7ECEB199E21F1005AC8A3 /* TKBListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKBListViewController.h; sourceTree = "<group>"; };
 		57F7ECEC199E21F1005AC8A3 /* TKBListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKBListViewController.m; sourceTree = "<group>"; };
 		57F7ECED199E21F1005AC8A3 /* TKBListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TKBListViewController.xib; sourceTree = "<group>"; };
+		57F7ECF3199E3A30005AC8A3 /* TKBAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKBAddViewController.h; sourceTree = "<group>"; };
+		57F7ECF4199E3A30005AC8A3 /* TKBAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKBAddViewController.m; sourceTree = "<group>"; };
+		57F7ECF5199E3A30005AC8A3 /* TKBAddViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TKBAddViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,9 +119,7 @@
 			children = (
 				57DF2B5E199E1DC3005081F7 /* TKBAppDelegate.h */,
 				57DF2B5F199E1DC3005081F7 /* TKBAppDelegate.m */,
-				57DF2B86199E1E5B005081F7 /* Controller */,
-				57DF2B85199E1E53005081F7 /* View */,
-				57DF2B84199E1E4C005081F7 /* Model */,
+				57F7ECF0199E39E6005AC8A3 /* Screens */,
 				57DF2B67199E1DC3005081F7 /* Images.xcassets */,
 				57DF2B56199E1DC3005081F7 /* Supporting Files */,
 			);
@@ -152,28 +155,33 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		57DF2B84199E1E4C005081F7 /* Model */ = {
+		57F7ECF0199E39E6005AC8A3 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				57F7ECF1199E39F2005AC8A3 /* ScheduleList */,
+				57F7ECF2199E3A0A005AC8A3 /* Add */,
 			);
-			name = Model;
+			name = Screens;
 			sourceTree = "<group>";
 		};
-		57DF2B85199E1E53005081F7 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				57F7ECED199E21F1005AC8A3 /* TKBListViewController.xib */,
-			);
-			name = View;
-			sourceTree = "<group>";
-		};
-		57DF2B86199E1E5B005081F7 /* Controller */ = {
+		57F7ECF1199E39F2005AC8A3 /* ScheduleList */ = {
 			isa = PBXGroup;
 			children = (
 				57F7ECEB199E21F1005AC8A3 /* TKBListViewController.h */,
 				57F7ECEC199E21F1005AC8A3 /* TKBListViewController.m */,
+				57F7ECED199E21F1005AC8A3 /* TKBListViewController.xib */,
 			);
-			name = Controller;
+			name = ScheduleList;
+			sourceTree = "<group>";
+		};
+		57F7ECF2199E3A0A005AC8A3 /* Add */ = {
+			isa = PBXGroup;
+			children = (
+				57F7ECF3199E3A30005AC8A3 /* TKBAddViewController.h */,
+				57F7ECF4199E3A30005AC8A3 /* TKBAddViewController.m */,
+				57F7ECF5199E3A30005AC8A3 /* TKBAddViewController.xib */,
+			);
+			name = Add;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,6 +263,7 @@
 			files = (
 				57F7ECEF199E21F1005AC8A3 /* TKBListViewController.xib in Resources */,
 				57DF2B68199E1DC3005081F7 /* Images.xcassets in Resources */,
+				57F7ECF7199E3A30005AC8A3 /* TKBAddViewController.xib in Resources */,
 				57DF2B5A199E1DC3005081F7 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -276,6 +285,7 @@
 			files = (
 				57F7ECEE199E21F1005AC8A3 /* TKBListViewController.m in Sources */,
 				57DF2B60199E1DC3005081F7 /* TKBAppDelegate.m in Sources */,
+				57F7ECF6199E3A30005AC8A3 /* TKBAddViewController.m in Sources */,
 				57DF2B5C199E1DC3005081F7 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
