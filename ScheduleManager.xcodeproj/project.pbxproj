@@ -23,6 +23,8 @@
 		57F7ECEF199E21F1005AC8A3 /* TKBListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57F7ECED199E21F1005AC8A3 /* TKBListViewController.xib */; };
 		57F7ECF6199E3A30005AC8A3 /* TKBAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57F7ECF4199E3A30005AC8A3 /* TKBAddViewController.m */; };
 		57F7ECF7199E3A30005AC8A3 /* TKBAddViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57F7ECF5199E3A30005AC8A3 /* TKBAddViewController.xib */; };
+		57F7ED01199F8780005AC8A3 /* TKBTitleWithTextViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57F7ECFF199F8780005AC8A3 /* TKBTitleWithTextViewTableViewCell.m */; };
+		57F7ED02199F8780005AC8A3 /* TKBTitleWithTextViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57F7ED00199F8780005AC8A3 /* TKBTitleWithTextViewTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,9 @@
 		57F7ECF3199E3A30005AC8A3 /* TKBAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKBAddViewController.h; sourceTree = "<group>"; };
 		57F7ECF4199E3A30005AC8A3 /* TKBAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKBAddViewController.m; sourceTree = "<group>"; };
 		57F7ECF5199E3A30005AC8A3 /* TKBAddViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TKBAddViewController.xib; sourceTree = "<group>"; };
+		57F7ECFE199F8780005AC8A3 /* TKBTitleWithTextViewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKBTitleWithTextViewTableViewCell.h; sourceTree = "<group>"; };
+		57F7ECFF199F8780005AC8A3 /* TKBTitleWithTextViewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKBTitleWithTextViewTableViewCell.m; sourceTree = "<group>"; };
+		57F7ED00199F8780005AC8A3 /* TKBTitleWithTextViewTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TKBTitleWithTextViewTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,8 +185,19 @@
 				57F7ECF3199E3A30005AC8A3 /* TKBAddViewController.h */,
 				57F7ECF4199E3A30005AC8A3 /* TKBAddViewController.m */,
 				57F7ECF5199E3A30005AC8A3 /* TKBAddViewController.xib */,
+				57F7ECF8199F8262005AC8A3 /* Cell */,
 			);
 			name = Add;
+			sourceTree = "<group>";
+		};
+		57F7ECF8199F8262005AC8A3 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				57F7ECFE199F8780005AC8A3 /* TKBTitleWithTextViewTableViewCell.h */,
+				57F7ECFF199F8780005AC8A3 /* TKBTitleWithTextViewTableViewCell.m */,
+				57F7ED00199F8780005AC8A3 /* TKBTitleWithTextViewTableViewCell.xib */,
+			);
+			name = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,6 +279,7 @@
 			files = (
 				57F7ECEF199E21F1005AC8A3 /* TKBListViewController.xib in Resources */,
 				57DF2B68199E1DC3005081F7 /* Images.xcassets in Resources */,
+				57F7ED02199F8780005AC8A3 /* TKBTitleWithTextViewTableViewCell.xib in Resources */,
 				57F7ECF7199E3A30005AC8A3 /* TKBAddViewController.xib in Resources */,
 				57DF2B5A199E1DC3005081F7 /* InfoPlist.strings in Resources */,
 			);
@@ -284,6 +301,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				57F7ECEE199E21F1005AC8A3 /* TKBListViewController.m in Sources */,
+				57F7ED01199F8780005AC8A3 /* TKBTitleWithTextViewTableViewCell.m in Sources */,
 				57DF2B60199E1DC3005081F7 /* TKBAppDelegate.m in Sources */,
 				57F7ECF6199E3A30005AC8A3 /* TKBAddViewController.m in Sources */,
 				57DF2B5C199E1DC3005081F7 /* main.m in Sources */,

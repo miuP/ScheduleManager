@@ -37,7 +37,7 @@
 
 - (void) prepareView
 {
-    //NaviBarに+ボタンの追加
+    //NaviBarにNewボタンの追加
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithTitle:@"New"
                                                                   style:UIBarButtonItemStylePlain
                                                                  target:self
