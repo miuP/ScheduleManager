@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol TKBAddViewControllerDelegate;
+
 @interface TKBAddViewController : UIViewController
+@property (weak, nonatomic) id <TKBAddViewControllerDelegate> delegate;
+
+@end
+
+
+@protocol TKBAddViewControllerDelegate <NSObject>
+
+- (void)didTapCompleteButtonInViewController:(TKBAddViewController *)vc;
 
 @end

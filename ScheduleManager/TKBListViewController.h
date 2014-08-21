@@ -10,4 +10,6 @@
 
 @interface TKBListViewController : UIViewController
 
+- (void)updateView;
+
 @end

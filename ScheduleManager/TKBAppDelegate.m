@@ -13,6 +13,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"LaunchedOnce"]) {
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"LaunchedOnce"];
+        [[NSUserDefaults standardUserDefaults] setValue:[@[] mutableCopy] forKeyPath:@"Schedules"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     TKBListViewController *rootVC = [[TKBListViewController alloc] initWithNibName:NSStringFromClass([TKBListViewController class])

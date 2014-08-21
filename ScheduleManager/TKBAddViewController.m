@@ -86,7 +86,17 @@
 
 - (void)didTapCompleteButton
 {
-    NSLog(@"%@", [_schedule description]);
+    if ([[_schedule objectForKey:@"Title"] isEqualToString:@""] || [_schedule objectForKey:@"Title"] == Nil) [_schedule setValue:@"NoTitle" forKey:@"Title"];
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    NSMutableArray *schedules = [[ud objectForKey:@"Schedules"] mutableCopy];
+    
+    [schedules addObject:_schedule];
+    [ud setObject:schedules forKey:@"Schedules"];
+    [ud synchronize];
+    [self.navigationController popViewControllerAnimated:YES];
+    if ([self.delegate respondsToSelector:@selector(didTapCompleteButtonInViewController:)]) {
+        [self.delegate didTapCompleteButtonInViewController:self];
+    }
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -98,7 +108,7 @@
 {
     TKBTitleWithTextViewTableViewCell *cell = [_tableView dequeueReusableCellWithIdentifier:@"Cell"];
     cell.textView.text = @"";
-    cell.textView.tag = [[NSString stringWithFormat:@"%d%d", indexPath.section + 1, indexPath.row + 1] integerValue];
+    cell.textView.tag = [[NSString stringWithFormat:@"%ld%ld", indexPath.section + 1, indexPath.row + 1] integerValue];
     cell.textView.delegate = self;
     cell.textView.returnKeyType = UIReturnKeyDone;
     switch (indexPath.section) {
@@ -111,7 +121,7 @@
                 
                 case 1:
                     if (_isInputItemNumber) {
-                        cell.textView.text = [NSString stringWithFormat:@"%d", _subjectNumber];
+                        cell.textView.text = [NSString stringWithFormat:@"%ld", _subjectNumber];
                     }
                     cell.titleLabel.text = @"項目数(1~9で入力してください)";
                     break;
@@ -122,7 +132,12 @@
             break;
             
         case 1:
-            cell.titleLabel.text = [NSString stringWithFormat:@"項目%dのタイトル", indexPath.row + 1];
+            cell.titleLabel.text = [NSString stringWithFormat:@"項目%ldのタイトル", indexPath.row + 1];
+            break;
+            
+        case 2:
+            cell.titleLabel.text = [NSString stringWithFormat:@"項目%ldのマスの数", indexPath.row + 1];
+            cell.textView.text = [[(NSDictionary *)_subjects[indexPath.row] objectForKey:@"ItemNumber"] stringValue];
             break;
             
         default:
@@ -142,6 +157,10 @@
             return _subjectNumber;
             break;
             
+        case 2:
+            return _subjectNumber;
+            break;
+            
         default:
             break;
     }
@@ -150,20 +169,17 @@
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    if (_isInputItemNumber) {
-        return 2;
-    } else {
-        return 1;
-    }
+    if (_isInputItemNumber) return 3;
+    else return 1;
 }
 
 -(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
-    NSString *tagString = [NSString stringWithFormat:@"%d", textView.tag];
+    NSString *tagString = [NSString stringWithFormat:@"%ld", textView.tag];
     NSInteger section = [[tagString substringWithRange:NSMakeRange(0, 1)] integerValue] -1;
     NSInteger row     = [[tagString substringWithRange:NSMakeRange(1, [tagString length] -1)] integerValue] -1;
     if ([text isEqualToString:@"\n"]) {
-        NSLog(@"%d", textView.tag);
+        NSLog(@"%ld", textView.tag);
         switch (section) {
             case 0:
                 switch (row) {
@@ -172,18 +188,39 @@
                         break;
                         
                     case 1:
-                        _isInputItemNumber = YES;
-                        _subjectNumber = [textView.text integerValue];
-                        [_schedule setValue:@([textView.text integerValue]) forKey:@"SubjectNum"];
-                        _subjects = [NSMutableArray arrayWithCapacity:_subjectNumber];
-                        [_tableView reloadData];
+                        if (1 <= [textView.text integerValue] && [textView.text integerValue] <= 9) {
+                            _isInputItemNumber = YES;
+                            _subjectNumber = [textView.text integerValue];
+                            [_schedule setValue:@([textView.text integerValue]) forKey:@"SubjectNumber"];
+                            _subjects = [NSMutableArray arrayWithCapacity:_subjectNumber];
+                            [_schedule setValue:_subjects forKey:@"Subjects"];
+                            for (int i = 0; i < _subjectNumber; i++) _subjects[i] = [@{} mutableCopy];
+                            [_tableView reloadData];
+                        } else {
+                            textView.text = @"1~9の数字で入力してください";
+                        }
                         break;
                     default:
                         break;
                 }
-                
+                break;
             case 1:
+                [(NSMutableDictionary *)_subjects[row] setValue:textView.text forKey:@"Title"];
+                break;
                 
+            case 2:
+            {
+                [(NSMutableDictionary *)_subjects[row] setValue:@([textView.text integerValue]) forKey:@"ItemNumber"];
+                NSMutableArray *itemTitles = [NSMutableArray arrayWithCapacity:[textView.text integerValue]];
+                NSMutableArray *complete   = [NSMutableArray arrayWithCapacity:[textView.text integerValue]];
+                for (int i = 0; i < [textView.text integerValue]; i++) {
+                    itemTitles[i] = @"";
+                    complete[i]   = @(0);
+                }
+                [(NSMutableDictionary *)_subjects[row] setValue:itemTitles forKey:@"ItemTitles"];
+                [(NSMutableDictionary *)_subjects[row] setValue:itemTitles forKey:@"Complete"];
+            }
+                break;
             default:
                 
                 break;
@@ -197,7 +234,7 @@
 
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView
 {
-    NSString *tagString = [NSString stringWithFormat:@"%d", textView.tag];
+    NSString *tagString = [NSString stringWithFormat:@"%ld", textView.tag];
     NSInteger section = [[tagString substringWithRange:NSMakeRange(0, 1)] integerValue] -1;
     NSInteger row     = [[tagString substringWithRange:NSMakeRange(1, [tagString length] -1)] integerValue] -1;
     _activeIndexPath = [NSIndexPath indexPathForRow:row inSection:section];
@@ -214,7 +251,7 @@
     tableViewFrame.size.height = _defaultTableViewHeight - kbFrame.size.height;
     tableViewFrame.origin.y = 0;
     _tableView.frame = tableViewFrame;
-    [_tableView scrollToRowAtIndexPath:_activeIndexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+    [_tableView scrollToRowAtIndexPath:_activeIndexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
     
 }
 

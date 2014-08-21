@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5773D27519A58E7D00A196B1 /* TKBTextFieldWithButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5773D27419A58E7D00A196B1 /* TKBTextFieldWithButtonView.m */; };
+		5773D27719A58EBA00A196B1 /* TKBTextFieldWithButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5773D27619A58EBA00A196B1 /* TKBTextFieldWithButtonView.xib */; };
+		57B9B1A419A337CD00DCD539 /* TKBScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57B9B1A219A337CD00DCD539 /* TKBScheduleViewController.m */; };
+		57B9B1A519A337CD00DCD539 /* TKBScheduleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57B9B1A319A337CD00DCD539 /* TKBScheduleViewController.xib */; };
 		57DF2B50199E1DC3005081F7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57DF2B4F199E1DC3005081F7 /* Foundation.framework */; };
 		57DF2B52199E1DC3005081F7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57DF2B51199E1DC3005081F7 /* CoreGraphics.framework */; };
 		57DF2B54199E1DC3005081F7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57DF2B53199E1DC3005081F7 /* UIKit.framework */; };
@@ -38,6 +42,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5773D27319A58E7D00A196B1 /* TKBTextFieldWithButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKBTextFieldWithButtonView.h; sourceTree = "<group>"; };
+		5773D27419A58E7D00A196B1 /* TKBTextFieldWithButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKBTextFieldWithButtonView.m; sourceTree = "<group>"; };
+		5773D27619A58EBA00A196B1 /* TKBTextFieldWithButtonView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TKBTextFieldWithButtonView.xib; sourceTree = "<group>"; };
+		57B9B1A119A337CD00DCD539 /* TKBScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKBScheduleViewController.h; sourceTree = "<group>"; };
+		57B9B1A219A337CD00DCD539 /* TKBScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKBScheduleViewController.m; sourceTree = "<group>"; };
+		57B9B1A319A337CD00DCD539 /* TKBScheduleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TKBScheduleViewController.xib; sourceTree = "<group>"; };
 		57DF2B4C199E1DC3005081F7 /* ScheduleManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScheduleManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57DF2B4F199E1DC3005081F7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		57DF2B51199E1DC3005081F7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -89,6 +99,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5773D27219A58E4A00A196B1 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				5773D27319A58E7D00A196B1 /* TKBTextFieldWithButtonView.h */,
+				5773D27419A58E7D00A196B1 /* TKBTextFieldWithButtonView.m */,
+				5773D27619A58EBA00A196B1 /* TKBTextFieldWithButtonView.xib */,
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
+		57B9B1A019A3379C00DCD539 /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				57B9B1A119A337CD00DCD539 /* TKBScheduleViewController.h */,
+				57B9B1A219A337CD00DCD539 /* TKBScheduleViewController.m */,
+				57B9B1A319A337CD00DCD539 /* TKBScheduleViewController.xib */,
+				5773D27219A58E4A00A196B1 /* view */,
+			);
+			name = Schedule;
+			sourceTree = "<group>";
+		};
 		57DF2B43199E1DC3005081F7 = {
 			isa = PBXGroup;
 			children = (
@@ -163,20 +194,21 @@
 		57F7ECF0199E39E6005AC8A3 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				57F7ECF1199E39F2005AC8A3 /* ScheduleList */,
+				57F7ECF1199E39F2005AC8A3 /* List */,
 				57F7ECF2199E3A0A005AC8A3 /* Add */,
+				57B9B1A019A3379C00DCD539 /* Schedule */,
 			);
 			name = Screens;
 			sourceTree = "<group>";
 		};
-		57F7ECF1199E39F2005AC8A3 /* ScheduleList */ = {
+		57F7ECF1199E39F2005AC8A3 /* List */ = {
 			isa = PBXGroup;
 			children = (
 				57F7ECEB199E21F1005AC8A3 /* TKBListViewController.h */,
 				57F7ECEC199E21F1005AC8A3 /* TKBListViewController.m */,
 				57F7ECED199E21F1005AC8A3 /* TKBListViewController.xib */,
 			);
-			name = ScheduleList;
+			name = List;
 			sourceTree = "<group>";
 		};
 		57F7ECF2199E3A0A005AC8A3 /* Add */ = {
@@ -280,6 +312,8 @@
 				57F7ECEF199E21F1005AC8A3 /* TKBListViewController.xib in Resources */,
 				57DF2B68199E1DC3005081F7 /* Images.xcassets in Resources */,
 				57F7ED02199F8780005AC8A3 /* TKBTitleWithTextViewTableViewCell.xib in Resources */,
+				5773D27719A58EBA00A196B1 /* TKBTextFieldWithButtonView.xib in Resources */,
+				57B9B1A519A337CD00DCD539 /* TKBScheduleViewController.xib in Resources */,
 				57F7ECF7199E3A30005AC8A3 /* TKBAddViewController.xib in Resources */,
 				57DF2B5A199E1DC3005081F7 /* InfoPlist.strings in Resources */,
 			);
@@ -303,7 +337,9 @@
 				57F7ECEE199E21F1005AC8A3 /* TKBListViewController.m in Sources */,
 				57F7ED01199F8780005AC8A3 /* TKBTitleWithTextViewTableViewCell.m in Sources */,
 				57DF2B60199E1DC3005081F7 /* TKBAppDelegate.m in Sources */,
+				57B9B1A419A337CD00DCD539 /* TKBScheduleViewController.m in Sources */,
 				57F7ECF6199E3A30005AC8A3 /* TKBAddViewController.m in Sources */,
+				5773D27519A58E7D00A196B1 /* TKBTextFieldWithButtonView.m in Sources */,
 				57DF2B5C199E1DC3005081F7 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
