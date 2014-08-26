@@ -133,6 +133,7 @@
             
         case 1:
             cell.titleLabel.text = [NSString stringWithFormat:@"項目%ldのタイトル", indexPath.row + 1];
+            cell.textView.text = [(NSDictionary *)_subjects[indexPath.row] objectForKey:@"Title"];
             break;
             
         case 2:
@@ -218,7 +219,7 @@
                     complete[i]   = @(0);
                 }
                 [(NSMutableDictionary *)_subjects[row] setValue:itemTitles forKey:@"ItemTitles"];
-                [(NSMutableDictionary *)_subjects[row] setValue:itemTitles forKey:@"Complete"];
+                [(NSMutableDictionary *)_subjects[row] setValue:complete forKey:@"Complete"];
             }
                 break;
             default:
