@@ -220,7 +220,7 @@
                     complete[i]   = @(0);
                 }
                 [(NSMutableDictionary *)_subjects[row] setValue:itemTitles forKey:@"ItemTitles"];
-                [(NSMutableDictionary *)_subjects[row] setValue:itemTitles forKey:@"Complete"];
+                [(NSMutableDictionary *)_subjects[row] setValue:complete forKey:@"Complete"];
             }
                 break;
             default:

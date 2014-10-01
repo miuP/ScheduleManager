@@ -57,7 +57,7 @@
     _completeColors[5] = [UIColor colorWithRed:0.8 green:1.0 blue:0.9 alpha:0.4];
     _completeColors[6] = [UIColor colorWithRed:0.8 green:1.0 blue:1.0 alpha:0.4];
     _completeColors[7] = [UIColor colorWithRed:0.8 green:0.9 blue:1.0 alpha:0.4];
-    _completeColors[8] = [UIColor colorWithRed:0.8 green:1.0 blue:1.0 alpha:0.4];
+    _completeColors[8] = [UIColor colorWithRed:0.8 green:0.8 blue:1.0 alpha:0.4];
     _labels = [@[] mutableCopy];
     [self prepareView];
     
@@ -103,7 +103,7 @@
                                                                                _subjectTitleViewWidth,
                                                                                _subjectsSuperView.frame.size.height/column * columns[i])];
         aSubjectTitleLabel.tag = [[NSString stringWithFormat:@"%d0", i + 1] integerValue];
-        [aSubjectTitleLabel.layer setBorderWidth:0.4];
+        [aSubjectTitleLabel.layer setBorderWidth:0.5];
         [aSubjectTitleLabel.layer setBorderColor:[[UIColor blackColor] CGColor]];
         aSubjectTitleLabel.text = [(NSDictionary *)subjects[i] objectForKey:@"Title"];
         [_subjectsSuperView addSubview:aSubjectTitleLabel];
@@ -126,7 +126,7 @@
                                                                                 _subjectsSuperView.frame.size.height/column * curColumn,
                                                                                 (_subjectsSuperView.frame.size.width - _subjectTitleViewWidth)/anItemNumber,
                                                                                 _subjectsSuperView.frame.size.height/column)];
-                [anItemLabel.layer setBorderWidth:0.4];
+                [anItemLabel.layer setBorderWidth:0.5];
                 [anItemLabel.layer setBorderColor:[[UIColor blackColor] CGColor]];
                 anItemLabel.textAlignment = NSTextAlignmentCenter;
                 anItemLabel.userInteractionEnabled = YES;
@@ -137,6 +137,7 @@
                 UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(labelTapped:)];
                 [anItemLabel addGestureRecognizer:tapGesture];
                 [_labels addObject:anItemLabel];
+                
             }
         } else {
             NSInteger surplus = anItemNumber % _row;
@@ -152,7 +153,7 @@
                         [anItemLabel addGestureRecognizer:tapGesture];
                         anItemLabel.text = anItemTitles[j + k * _row];
                         if ([aComplete[j + k * _row] boolValue]) anItemLabel.backgroundColor = _completeColors[i];
-                        [anItemLabel.layer setBorderWidth:0.4];
+                        [anItemLabel.layer setBorderWidth:0.5];
                         [anItemLabel.layer setBorderColor:[[UIColor blackColor] CGColor]];
                         anItemLabel.textAlignment = NSTextAlignmentCenter;
                         anItemLabel.userInteractionEnabled = YES;
@@ -171,7 +172,7 @@
                         anItemLabel.tag = [[NSString stringWithFormat:@"%d%ld", i + 1, j + 1 + k*_row] integerValue];
                         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(labelTapped:)];
                         [anItemLabel addGestureRecognizer:tapGesture];
-                        [anItemLabel.layer setBorderWidth:0.4];
+                        [anItemLabel.layer setBorderWidth:0.5];
                         anItemLabel.text = anItemTitles[j + k * _row];
                         if ([aComplete[j + k * _row] boolValue]) anItemLabel.backgroundColor = _completeColors[i];
                         [anItemLabel.layer setBorderColor:[[UIColor blackColor] CGColor]];
@@ -189,7 +190,7 @@
                         anItemLabel.tag = [[NSString stringWithFormat:@"%d%ld", i + 1, j + 1 + k*_row] integerValue];
                         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(labelTapped:)];
                         [anItemLabel addGestureRecognizer:tapGesture];
-                        [anItemLabel.layer setBorderWidth:0.4];
+                        [anItemLabel.layer setBorderWidth:0.5];
                         anItemLabel.text = anItemTitles[j + k * _row];
                         if ([aComplete[j + k * _row] boolValue]) anItemLabel.backgroundColor = _completeColors[i];
                         [anItemLabel.layer setBorderColor:[[UIColor blackColor] CGColor]];
@@ -298,8 +299,9 @@
         [self hideTexrField];
         [self reloadLabels];
         self.navigationItem.rightBarButtonItem.title = @"編集";
-        
+        self.title = [_schedule objectForKey:@"Title"];
     } else {
+        self.title = @"編集中";
         _isEditing = YES;
         _memoTextView.editable = YES;
         self.navigationItem.rightBarButtonItem.title = @"完了";
