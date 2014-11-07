@@ -98,6 +98,7 @@
     
     NSInteger curColumn = 0;
     for (int i = 0; i < subjectNum; i++) {
+        NSArray *aComplete     = [(NSDictionary *)subjects[i] objectForKey:@"Complete"];
         UILabel *aSubjectTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0,
                                                                                _subjectsSuperView.frame.size.height/column * curColumn,
                                                                                _subjectTitleViewWidth,
@@ -112,6 +113,9 @@
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(labelTapped:)];
         [aSubjectTitleLabel addGestureRecognizer:tapGesture];
         curColumn = curColumn + columns[i];
+        if ([self allComplete:aComplete]) {
+            aSubjectTitleLabel.backgroundColor = _completeColors[i];
+        }
     }
     
     curColumn = 0;
@@ -242,6 +246,13 @@
             schedules[_scheduleRow] = _schedule;
             [[NSUserDefaults standardUserDefaults] setObject:schedules forKey:@"Schedules"];
             [[NSUserDefaults standardUserDefaults] synchronize];
+            NSString *tagStr = [NSString stringWithFormat:@"%ld0", section+1];
+            UIView *titleView = [self.view viewWithTag:[tagStr integerValue]];
+            if ([self allComplete:complete]) {
+                titleView.backgroundColor = _completeColors[section];
+            } else {
+                titleView.backgroundColor = [UIColor clearColor];
+            }
             
         }
     }
@@ -390,7 +401,15 @@
 }
 
 
-
+- (BOOL)allComplete:(NSArray *)array
+{
+    for (NSNumber *num in array) {
+        if (![num boolValue]) {
+            return NO;
+        }
+    }
+    return YES;
+}
 
 - (void)didReceiveMemoryWarning
 {
