@@ -243,6 +243,63 @@
     return YES;
 }
 
+- (void)textViewDidChange:(UITextView *)textView
+{
+    NSString *tagString = [NSString stringWithFormat:@"%ld", textView.tag];
+    NSInteger section = [[tagString substringWithRange:NSMakeRange(0, 1)] integerValue] -1;
+    NSInteger row     = [[tagString substringWithRange:NSMakeRange(1, [tagString length] -1)] integerValue] -1;
+    NSLog(@"%ld", textView.tag);
+    if (textView.tag == 12) {
+        return;
+    }
+    switch (section) {
+        case 0:
+            switch (row) {
+                case 0:
+                    [_schedule setValue:textView.text forKey:@"Title"];
+                    break;
+                    
+                case 1:
+                    if (1 <= [textView.text integerValue] && [textView.text integerValue] <= 9) {
+                        _isInputItemNumber = YES;
+                        _subjectNumber = [textView.text integerValue];
+                        [_schedule setValue:@([textView.text integerValue]) forKey:@"SubjectNumber"];
+                        _subjects = [NSMutableArray arrayWithCapacity:_subjectNumber];
+                        [_schedule setValue:_subjects forKey:@"Subjects"];
+                        for (int i = 0; i < _subjectNumber; i++) _subjects[i] = [@{} mutableCopy];
+                        [_tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+                    } else {
+                        textView.text = @"1~9の数字で入力してください";
+                    }
+                    break;
+                default:
+                    break;
+            }
+            break;
+        case 1:
+            [(NSMutableDictionary *)_subjects[row] setValue:textView.text forKey:@"Title"];
+            break;
+            
+        case 2:
+        {
+            [(NSMutableDictionary *)_subjects[row] setValue:@([textView.text integerValue]) forKey:@"ItemNumber"];
+            NSMutableArray *itemTitles = [NSMutableArray arrayWithCapacity:[textView.text integerValue]];
+            NSMutableArray *complete   = [NSMutableArray arrayWithCapacity:[textView.text integerValue]];
+            for (int i = 0; i < [textView.text integerValue]; i++) {
+                itemTitles[i] = @"";
+                complete[i]   = @(0);
+            }
+            [(NSMutableDictionary *)_subjects[row] setValue:itemTitles forKey:@"ItemTitles"];
+            [(NSMutableDictionary *)_subjects[row] setValue:itemTitles forKey:@"Complete"];
+        }
+            break;
+        default:
+            
+            break;
+    }
+    
+}
+
 - (void)keyboardWillShow:(NSNotification*)notification
 {
     

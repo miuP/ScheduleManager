@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIView *subjectsSuperView;
 @property (weak, nonatomic) IBOutlet UITextView *memoTextView;
 @property (weak, nonatomic) IBOutlet UIView *memoSuperView;
+@property (weak, nonatomic) IBOutlet UITextView *memo2TextView;
 
 @end
 
@@ -41,9 +42,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     _row = 5;
-    _memoTextView.delegate = self;
     _memoTextView.editable = NO;
+    _memo2TextView.editable = NO;
     _memoTextView.text = [_schedule objectForKey:@"Memo"];
+    _memo2TextView.text = [_schedule objectForKey:@"Memo2"];
+    [_memoSuperView bringSubviewToFront:_memoTextView];
+    [self.view bringSubviewToFront:_memoSuperView];
     [_memoSuperView.layer setBorderWidth:2.0];
     [_memoSuperView.layer setBorderColor:[[UIColor blackColor] CGColor]];
     self.title = [_schedule objectForKey:@"Title"];
@@ -276,7 +280,7 @@
     [UIView animateWithDuration:0.5f
                      animations:^{
                          _textFieldWithButtonView.frame = viewRect;
-                     }];
+                     } completion:nil];
     [_textFieldWithButtonView.textField resignFirstResponder];
 }
 
@@ -287,7 +291,11 @@
     [UIView animateWithDuration:0.25f
                      animations:^{
                          _memoSuperView.frame = viewRect;
+                     }
+                     completion:^(BOOL finished){
+                         _memoSuperView.frame = viewRect;                        
                      }];
+    
 }
 
 - (void)memoViewMoveUnder
@@ -305,6 +313,7 @@
     if (_isEditing) {
         _isEditing = NO;
         _memoTextView.editable = NO;
+        _memo2TextView.editable = NO;
         if (_editedLabel) _editedLabel.backgroundColor = [UIColor clearColor];
         _editedLabel = nil;
         [self hideTexrField];
@@ -314,6 +323,7 @@
     } else {
         self.title = @"編集中";
         _isEditing = YES;
+        _memo2TextView.editable = YES;
         _memoTextView.editable = YES;
         self.navigationItem.rightBarButtonItem.title = @"完了";
         for (UILabel *aLabel in _labels) aLabel.backgroundColor = [UIColor clearColor];
@@ -358,6 +368,9 @@
     _editedLabel = nil;
 }
 
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView {
+    return YES;
+}
 
 
 - (void)textViewDidBeginEditing:(UITextView *)textView
@@ -368,11 +381,19 @@
 -(void)textViewDidEndEditing:(UITextView *)textView
 {
     [self memoViewMoveUnder];
-    [_schedule setValue:textView.text forKey:@"Memo"];
-    NSMutableArray *schedules = [[[NSUserDefaults standardUserDefaults] objectForKey:@"Schedules"] mutableCopy];
-    schedules[_scheduleRow] = _schedule;
-    [[NSUserDefaults standardUserDefaults] setObject:schedules forKey:@"Schedules"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    if (textView.tag == 1) {
+        [_schedule setValue:textView.text forKey:@"Memo"];
+        NSMutableArray *schedules = [[[NSUserDefaults standardUserDefaults] objectForKey:@"Schedules"] mutableCopy];
+        schedules[_scheduleRow] = _schedule;
+        [[NSUserDefaults standardUserDefaults] setObject:schedules forKey:@"Schedules"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    } else {
+        [_schedule setValue:textView.text forKey:@"Memo2"];
+        NSMutableArray *schedules = [[[NSUserDefaults standardUserDefaults] objectForKey:@"Schedules"] mutableCopy];
+        schedules[_scheduleRow] = _schedule;
+        [[NSUserDefaults standardUserDefaults] setObject:schedules forKey:@"Schedules"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
     
 }
 
